@@ -1,0 +1,35 @@
+<app-header></app-header>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">CodigoFactura</th>
+    <th scope="col">Cliente</th>
+    <th scope="col">Ciudad</th>
+    <th scope="col">NIT</th>
+    <th scope="col">TotalFactura</th>
+    <th scope="col">SubTotal</th>
+    <th scope="col">Iva</th>
+    <th scope="col">Retencion</th>
+    <th scope="col">Fecha Creacion</th>
+    <th scope="col">Estado</th>
+    <th scope="col">Pagada</th>
+    <th scope="col">Fecha Pago</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let factura of facturas">
+    <th scope="row">{{factura.CodigoFactura}}</th>
+    <td>{{factura.cliente}}</td>
+    <td>{{factura.ciudad}}</td>
+    <td>{{factura.nit}}</td>
+    <td>${{formatNumber(factura.totalInvoice)}}</td>
+    <td>${{formatNumber(factura.subTotal)}}</td>
+    <td>${{formatNumber(factura.iva)}}</td>
+    <td>${{formatNumber(factura.retencion)}}</td>
+    <td>{{ factura.creationDate | date:'dd/MM/yyyy HH:mm' }}</td>
+    <td>{{factura.estado}}</td>
+    <td>{{factura.pagada}}</td>
+    <td>{{factura.paymentDate}}</td>
+  </tbody>
+</table>
+<app-footer></app-footer>
