@@ -11,6 +11,11 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
   getAllFacturas():Observable<ListafacturasI[]>{
+    let direccion = "https://localhost:7015/api/Bills/api/datos";
+    return this.http.get<ListafacturasI[]>(direccion);
+  }
+
+  getSendEmail():Observable<ListafacturasI[]>{
     let direccion = "https://localhost:7015/api/Bills";
     return this.http.get<ListafacturasI[]>(direccion);
   }

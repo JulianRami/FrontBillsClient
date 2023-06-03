@@ -11,6 +11,7 @@ import {ListafacturasI} from '../../modelos/listafacturas.interface';
 export class DashboardComponent implements OnInit{
   // @ts-ignore
   facturas:ListafacturasI[];
+  showSuccessMessage: boolean = false;
   constructor(private api:ApiService, private router:Router) {
   }
 
@@ -30,4 +31,15 @@ export class DashboardComponent implements OnInit{
     });
 
   }
+
+  onClickButton(){
+    this.api.getSendEmail().subscribe(data =>{
+      this.facturas = data;
+    });
+    this.showSuccessMessage = true;
+    setTimeout(() => {
+      this.showSuccessMessage = false;
+    }, 2000);
+  }
+
 }

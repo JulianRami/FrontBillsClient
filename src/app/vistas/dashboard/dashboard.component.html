@@ -1,4 +1,6 @@
 <app-header></app-header>
+<button class="button.small-screen btn btn-success" type="button" (click)="onClickButton()">Enviar Email</button>
+<div *ngIf="showSuccessMessage" class="success-message">¡Mensajes enviados!</div>
 <table class="table table-hover">
   <thead>
   <tr>
